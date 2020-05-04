@@ -1,0 +1,1070 @@
+<html>
+
+	<head>
+	
+	<title>Test Result History</title>
+	
+		 <style>
+            body {
+                font-family: calibri;
+                background-color: #DFDFDF;
+            }
+
+            h2 {
+                color: midnightblue;
+            }
+
+            a {
+                color: blue;
+                text-decoration: none;
+            }
+
+            table {
+                border: 1px solid #AAAAAA;
+            }
+
+            th {
+                border-bottom: 1px solid #AAAAAA;
+            }
+
+            tr {
+                background: aliceblue;
+            }
+
+            td {
+                border: 1px solid lightgray;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            p {
+                max-height: 125px;
+                overflow: auto;
+            }
+ 			
+ 			table#dashboard{
+ 				width:420px;
+ 			} 
+
+            #dashboard td {
+                background-color: aliceblue;
+                font-family: monospace;
+                word-break: break-all;
+                font-size: smaller;
+            }
+
+            .dashboard-header {
+                border-radius: 4px;
+                padding: 1px 0px;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .cellText-center {
+                border-radius: 4px;
+                padding: 1px 5px;
+                text-align: center;
+            }
+
+            .properties-div {
+                border: solid black 0px;
+                margin: 0px;
+                padding: 0px;
+                width: max-content;
+                color: midnightblue;
+                text-align: left;
+            }
+
+            .properties-span {
+                border: solid black 0px;
+                margin: 5px;
+                padding: 3px;
+            }
+
+            .currentPage {
+                color: #000;
+                font-size: x-large;
+            }
+
+            span[class*='AWS'] {
+                border-radius: 4px;
+                padding: 1px;
+                background-color: blue;
+                color: white;
+            }
+
+            span[class*='STG'] {
+                border-radius: 4px;
+                padding: 1px;
+                background-color: red;
+                color: white;
+            }
+
+            .prev {
+                border: 1px solid lightgray;
+                padding: 1px;
+                margin: 1px 5px;
+            }
+
+            .next {
+                border: 1px solid lightgray;
+                padding: 1px;
+                margin: 1px 5px;
+            }
+            .info{
+				    border: 0px solid black;
+					margin: 0px 0px -42px 15px;
+					padding: 0px 0px 0px 0px;
+			}
+			.dir{
+				float:left;
+			}
+			.up{
+			    border: 0px solid black;
+				margin: 0px 0px 0px 15px;
+				padding: 0px 0px 0px 0px;
+			}
+			.left{
+				border: 0px solid black;
+				margin: 10px 0px 0px -30px;
+				padding: 0px 0px 0px 0px;
+			}
+			.right{
+			    border: 0px solid black;
+				margin: 10px 0px 0px 0px;
+				padding: 0px 0px 0px 0px;
+			}
+			.down{
+				border: 0px solid black;
+				margin: 20px 0px 0px -29px;
+				padding: 0px 0px 0px 0px;
+			}
+			.round{
+				width: 44px;
+				height: 41px;
+				border: 0px solid grey;
+				position: fixed;
+				border-radius: 50%;
+				background: darkgray;
+				box-shadow: 0px 0px 10px 2px black;
+				color: white;
+				cursor: pointer;
+			}
+			.txt{
+				margin: 1px 1px 1px 60px;
+			}
+			.quickView{
+				max-height: 135px;
+    			overflow-y: auto;
+			}
+			
+            .pass {
+                color: green;
+            }
+
+            .info {
+                color: blue;
+            }
+
+            .fail {
+                color: red;
+            }
+
+            .fatal {
+                color: #B71C1C;
+            }
+
+            .warning {
+                color: orange;
+            }
+
+            .error {
+                color: #ec407a;
+            }
+
+            .skip {
+                color: brown;
+            }
+            
+            
+            .miniBarProgress {
+			    text-align: center;
+			}
+			.miniBar {    
+			    border: 1px solid #8a898a;
+			    position: relative;
+			    width: -webkit-calc(100% - 2rem);
+			    width: -moz-calc(100% - 2rem);
+			    width: 100%;
+			    margin-right: 0.5rem;
+			    color: white;
+			    font-weight: bold;
+			    -webkit-align-items: stretch;
+    			align-items: stretch;
+    			display:flex;
+    			height:15px;
+    			margin-bottom:55px;
+			}
+			
+			.tooltips{
+			    position: relative;
+			}
+			.mini-middle::after {
+			    content: '';
+			    border-bottom: 8px solid #000000;
+			    width: 0px;
+			    border-left: 6px solid transparent;
+			    border-right: 6px solid transparent;
+			    position: absolute;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    top: -4px;
+			}
+			.mini-middle{
+			position: absolute;
+			    left: 50%;
+			    background: #000;
+			    transform: translate(-50%, -50%);
+			    padding: 2px 7px;
+			    border-radius: 4px;
+			    bottom: -39px;
+			    width: 50px;
+			}
+						
+			.green .mini-middle::after {
+			    border-bottom-color: green;
+			}
+			
+			.green .mini-middle {
+			    background: green;
+			}	
+						
+			.red .mini-middle::after {
+			    border-bottom-color: red;
+			}
+			
+			.red .mini-middle {
+			    background: red;
+			}			
+			
+			.brown .mini-middle::after {
+			    border-bottom-color: brown;
+			}
+			
+			.brown .mini-middle {
+			    background: brown;
+			}	
+			
+        </style>
+	<head>
+
+
+	<body>
+	<div class='info'>
+		<div class="round">
+			<div class='dir up' onclick="window.scrollBy(0,-50)">
+				&uarr;
+			</div>
+			<div class='dir left'  onclick="loadPage('left')">
+				&larr;
+			</div>
+			<div class='dir right'  onclick="loadPage('right')">
+				&rarr;
+			</div>
+			<div class='dir down'  onclick="window.scrollBy(0,50)">
+				&darr;
+			</div>
+		</div>
+			
+		<div class='txt'>Use Keyboard keys to control the navigation</div>
+	</div>
+	<center>
+		<h2>HCM Test Result History</h2>
+		<i>Total rows 247<!-- TOTAL ROWS --> and Displaying 10<!-- PAGE ROWS --> rows per page.
+		<br/>
+		<a href='page24.html'> <span class='prev'> &#8592 Prev </span></a>
+		
+		<br/>
+		Page <a href='page1.html'>1</a> <a href='page2.html'>2</a> <a href='page3.html'>3</a> <a href='page4.html'>4</a> <a href='page5.html'>5</a> <a href='page6.html'>6</a> <a href='page7.html'>7</a> <a href='page8.html'>8</a> <a href='page9.html'>9</a> <a href='page10.html'>10</a> <a href='page11.html'>11</a> <a href='page12.html'>12</a> <a href='page13.html'>13</a> <a href='page14.html'>14</a> <a href='page15.html'>15</a> <a href='page16.html'>16</a> <a href='page17.html'>17</a> <a href='page18.html'>18</a> <a href='page19.html'>19</a> <a href='page20.html'>20</a> <a href='page21.html'>21</a> <a href='page22.html'>22</a> <a href='page23.html'>23</a> <a href='page24.html'>24</a> <a href='page25.html'><span class='currentPage'>25</span></a> <!-- INSERT_TOP_PAGINATION -->
+		</i>
+
+
+		<table border='0'>
+
+			<tbody>
+			
+				<tr>
+					<td style='font-weight: bold; text-align: center;'>#</td>
+					<td style='font-weight: bold; text-align: center;'>Folder</td>
+					<td style='font-weight: bold; text-align: center;'>DashBoards</td>
+					<td style='font-weight: bold; text-align: center;'>Quick Report View</td>
+					<td style='font-weight: bold; text-align: center;'>Reports Link</td>
+				</tr>
+				
+				<tr><td>241</td><td>2019Oct25_114850</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 11:48:05 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 11:48:49 AM</td>
+						<td colspan="2" class="cellText-center">00:00:43.987</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>1</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>15</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>8</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:orange;'>2</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>4</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: <!-- passingPercent -->; background-color: green;"><!-- passingPercent --></div>
+								<div class="miniBarProgress" style="left: <!-- passingPercent -->; width: 100.0%; background-color: red;">100.0%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC11_Admin_External_Check_Mail_BlockItem'>TC11_Admin_External_Check_Mail_BlockItem | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_114850/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_114850/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>242</td><td>2019Oct25_114849</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 11:48:05 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 11:48:49 AM</td>
+						<td colspan="2" class="cellText-center">00:00:43.637</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>1</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>15</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>8</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:orange;'>2</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>4</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: <!-- passingPercent -->; background-color: green;"><!-- passingPercent --></div>
+								<div class="miniBarProgress" style="left: <!-- passingPercent -->; width: 100.0%; background-color: red;">100.0%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC11_Admin_External_Check_Mail_BlockItem'>TC11_Admin_External_Check_Mail_BlockItem | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_114849/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_114849/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>243</td><td>2019Oct25_113821</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 11:37:50 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 11:38:21 AM</td>
+						<td colspan="2" class="cellText-center">00:00:31.707</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>1</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>12</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>8</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:orange;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>2</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: <!-- passingPercent -->; background-color: green;"><!-- passingPercent --></div>
+								<div class="miniBarProgress" style="left: <!-- passingPercent -->; width: 100.0%; background-color: red;">100.0%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC11_Admin_External_Check_Mail_BlockItem'>TC11_Admin_External_Check_Mail_BlockItem | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_113821/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_113821/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>244</td><td>2019Oct25_113646</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 11:36:15 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 11:36:46 AM</td>
+						<td colspan="2" class="cellText-center">00:00:31.138</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>1</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>12</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>8</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:orange;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>2</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: <!-- passingPercent -->; background-color: green;"><!-- passingPercent --></div>
+								<div class="miniBarProgress" style="left: <!-- passingPercent -->; width: 100.0%; background-color: red;">100.0%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC11_Admin_External_Check_Mail_BlockItem'>TC11_Admin_External_Check_Mail_BlockItem | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_113646/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_113646/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>245</td><td>2019Oct25_113310</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 11:32:11 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 11:33:10 AM</td>
+						<td colspan="2" class="cellText-center">00:00:59.207</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>2</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>2</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>16</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>16</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: 100.0%; background-color: green;">100.0%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- failurePercent -->; background-color: red;"><!-- failurePercent --></div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC10_Admin_External_Check_MailSetAsItemFlag'>TC10_Admin_External_Check_MailSetAsItemFlag | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess1'" class='w3-bar-item w3-button' title='TC11_Admin_External_Check_Mail_BlockItem'>TC11_Admin_External_Check_Mail_BlockItem | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_113310/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_113310/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>246</td><td>2019Oct25_104511</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Regression_Suite</td>
+						<td colspan="3"><b>Test</b>: Regression_Tests</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 09:59:01 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 10:45:09 AM</td>
+						<td colspan="2" class="cellText-center">00:46:08.907</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>77</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>23</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#ec407a;'>11</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>43</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1035</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>568</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>82</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#ec407a;'>46</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:orange;'>38</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>301</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: 29.87%; background-color: green;">29.87%</div>
+								<div class="miniBarProgress" style="left: 29.87%; width: 70.12%; background-color: red;">70.12%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC02_Recruiter Management_Verify Filter Dropdown func'>HCM166_Recruit_TC02_Recruiter Management_Verify Filter Dropdown func | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess1'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC03_Recruiter Management_Verify Quick View content'>HCM166_Recruit_TC03_Recruiter Management_Verify Quick View content | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess2'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC01_Recruiter Management_Verify Page Content'>HCM166_Recruit_TC01_Recruiter Management_Verify Page Content | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess3'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC04_Recruiter Management_Verify Text Search func'>HCM166_Recruit_TC04_Recruiter Management_Verify Text Search func | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess4'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC06_Recruiter Management_Verify Allocated Preferred Recruitment Areas'>HCM166_Recruit_TC06_Recruiter Management_Verify Allocated Preferred Recruitment Areas | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess5'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC07_Recruiter Management_Verify Recruiter Details Page Content'>HCM166_Recruit_TC07_Recruiter Management_Verify Recruiter Details Page Content | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess6'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC08_Recruiter Management_Create Task'>HCM166_Recruit_TC08_Recruiter Management_Create Task | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess7'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC09_Recruiter Management_Current Task Schedules_Calendar Num Links'>HCM166_Recruit_TC09_Recruiter Management_Current Task Schedules_Calendar Num Links | Error</span></li><li class='Error'><span onclick="window.location.href='#quickAccess8'" class='w3-bar-item w3-button' title='HCM166_Recruit_TC10_Recruiter Management_Current Task Schedules_Calendar Num Links'>HCM166_Recruit_TC10_Recruiter Management_Current Task Schedules_Calendar Num Links | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess9'" class='w3-bar-item w3-button' title='Recruit_TC11_Recruiter Management_Add Recruiter_Verify UI'>Recruit_TC11_Recruiter Management_Add Recruiter_Verify UI | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess10'" class='w3-bar-item w3-button' title='Recruit_TC13_Recruiter Management_Disable Recruiter_No Participants'>Recruit_TC13_Recruiter Management_Disable Recruiter_No Participants | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess11'" class='w3-bar-item w3-button' title='Recruit_TC14_Recruiter Management_Disable Recruiter_Attach Participants_Auto Allocation'>Recruit_TC14_Recruiter Management_Disable Recruiter_Attach Participants_Auto Allocation | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess12'" class='w3-bar-item w3-button' title='Recruit_TC12_Recruiter Management_Add a New Recruiter'>Recruit_TC12_Recruiter Management_Add a New Recruiter | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess13'" class='w3-bar-item w3-button' title='Recruit_TC15_Recruiter Management_Disable Recruiter_Attach Participants_Custom Allocation'>Recruit_TC15_Recruiter Management_Disable Recruiter_Attach Participants_Custom Allocation | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess14'" class='w3-bar-item w3-button' title='HCM196_Recruit_TC01_RAdmin_ApplicantListingColumnHeader'>HCM196_Recruit_TC01_RAdmin_ApplicantListingColumnHeader | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess15'" class='w3-bar-item w3-button' title='Recruit_TC16_Recruiter Details_Disable Recruiter_Attach Participants_Custom Allocation'>Recruit_TC16_Recruiter Details_Disable Recruiter_Attach Participants_Custom Allocation | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess16'" class='w3-bar-item w3-button' title='HCM196_Recruit_TC02_RAdmin_QuickView'>HCM196_Recruit_TC02_RAdmin_QuickView | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess17'" class='w3-bar-item w3-button' title='HCM198_Recruit_TC03_Recruiter_QuickView'>HCM198_Recruit_TC03_Recruiter_QuickView | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess18'" class='w3-bar-item w3-button' title='HCM198_Recruit_TC07_Recruiter_FilterListingDropdown'>HCM198_Recruit_TC07_Recruiter_FilterListingDropdown | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess19'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC01_RecruiterAdmin_The admin is able to select the job type, job category, job sub category,employment type and salary range from a list of predefined values on the create job screen'>HCM188_Recruit_TC01_RecruiterAdmin_The admin is able to select the job type, job category, job sub category,employment type and salary range from a list of predefined values on the create job screen | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess20'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC02_RecruiterAdmin_The list of pre-defined values in the drop-downs will be as follows,'>HCM188_Recruit_TC02_RecruiterAdmin_The list of pre-defined values in the drop-downs will be as follows, | Fatal</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess21'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC03_RecruiterAdmin_CheckSalaryCheckBoxFunction'>HCM188_Recruit_TC03_RecruiterAdmin_CheckSalaryCheckBoxFunction | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess22'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC04_RecruiterAdmin_VerifyJobDetailsOnPreviewpost'>HCM188_Recruit_TC04_RecruiterAdmin_VerifyJobDetailsOnPreviewpost | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess23'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC07_RecruiterAdminCreateJob_CheckALlRequiredValidation'>HCM188_Recruit_TC07_RecruiterAdminCreateJob_CheckALlRequiredValidation | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess24'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC14_RecruiterAdminJob_ResetFunctionality'>HCM188_Recruit_TC14_RecruiterAdminJob_ResetFunctionality | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess25'" class='w3-bar-item w3-button' title='HCM196_Recruit_TC05_RAdmin_ListingDropdown'>HCM196_Recruit_TC05_RAdmin_ListingDropdown | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess26'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC15_RecruiterAdminJob_SaveAsDraftFunctionality'>HCM188_Recruit_TC15_RecruiterAdminJob_SaveAsDraftFunctionality | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess27'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC16_RecruiterJobVerify_JobDetailsOnPreviewAndJobPost'>HCM188_Recruit_TC16_RecruiterJobVerify_JobDetailsOnPreviewAndJobPost | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess28'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC09_RecruiterJobVerify_DateRecurringCheckBox'>HCM188_Recruit_TC09_RecruiterJobVerify_DateRecurringCheckBox | Error</span></li><li class='Error'><span onclick="window.location.href='#quickAccess29'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC013_RecruiterJobVerify_TextLayOutSection'>HCM188_Recruit_TC013_RecruiterJobVerify_TextLayOutSection | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess30'" class='w3-bar-item w3-button' title='HCM188_Recruit_TC08_RecruiterJobVerify_ValidationStartDateOrEndDate'>HCM188_Recruit_TC08_RecruiterJobVerify_ValidationStartDateOrEndDate | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess31'" class='w3-bar-item w3-button' title='HCM_Recruit_TC01_RecruiterCreateTask_CheckMaxApplicantValidation'>HCM_Recruit_TC01_RecruiterCreateTask_CheckMaxApplicantValidation | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess32'" class='w3-bar-item w3-button' title='HCM_Recruit_TC02_RecruiterCreateTask_VerifyUI'>HCM_Recruit_TC02_RecruiterCreateTask_VerifyUI | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess33'" class='w3-bar-item w3-button' title='HCM_Recruit_TC03_RecruiterCreateTask_SearchRecruiter'>HCM_Recruit_TC03_RecruiterCreateTask_SearchRecruiter | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess34'" class='w3-bar-item w3-button' title='HCM_Recruit_TC04_RecruiterCreateTask_CreateNewTask'>HCM_Recruit_TC04_RecruiterCreateTask_CreateNewTask | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess35'" class='w3-bar-item w3-button' title='HCM_Recruit_TC05_RecruiterCreateTask_DateTimeDuration'>HCM_Recruit_TC05_RecruiterCreateTask_DateTimeDuration | Error</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess36'" class='w3-bar-item w3-button' title='HCM_Recruit_TC06_RecruiteTask_VerifyUI'>HCM_Recruit_TC06_RecruiteTask_VerifyUI | Fatal</span></li><li class='Error'><span onclick="window.location.href='#quickAccess37'" class='w3-bar-item w3-button' title='Recruit_TC08_TaskList_CheckFilter'>Recruit_TC08_TaskList_CheckFilter | Error</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess38'" class='w3-bar-item w3-button' title='Recruit_TC09_TaskList_ViewTaskPopUp'>Recruit_TC09_TaskList_ViewTaskPopUp | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess39'" class='w3-bar-item w3-button' title='Recruit_TC07_TaskList_verify_SearchFunctionlity'>Recruit_TC07_TaskList_verify_SearchFunctionlity | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess40'" class='w3-bar-item w3-button' title='TC01_Admin_UIVerification_UserMgmt'>TC01_Admin_UIVerification_UserMgmt | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess41'" class='w3-bar-item w3-button' title='TC02_Admin_FilterDropdown'>TC02_Admin_FilterDropdown | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess42'" class='w3-bar-item w3-button' title='TC03_Admin_TextSearch'>TC03_Admin_TextSearch | Fatal</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess43'" class='w3-bar-item w3-button' title='TC05_Admin_CreateUser_Inactive_ActiveUser'>TC05_Admin_CreateUser_Inactive_ActiveUser | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess44'" class='w3-bar-item w3-button' title='TC04_Admin_Create A New User then make it Inactive'>TC04_Admin_Create A New User then make it Inactive | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess45'" class='w3-bar-item w3-button' title='TC06_Admin_CreateUser_ArchiveUser'>TC06_Admin_CreateUser_ArchiveUser | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess46'" class='w3-bar-item w3-button' title='TC07_Admin_EditUser'>TC07_Admin_EditUser | Fatal</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess47'" class='w3-bar-item w3-button' title='TC09_Admin_CreateNewUser_CheckRole_Participants'>TC09_Admin_CreateNewUser_CheckRole_Participants | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess48'" class='w3-bar-item w3-button' title='TC10_Admin_CreateNewUser_CheckRole_Member'>TC10_Admin_CreateNewUser_CheckRole_Member | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess49'" class='w3-bar-item w3-button' title='TC11_Admin_CreateNewUser_CheckRole_Organization'>TC11_Admin_CreateNewUser_CheckRole_Organization | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess50'" class='w3-bar-item w3-button' title='TC12_Admin_CreateNewUser_CheckRole_Schedule'>TC12_Admin_CreateNewUser_CheckRole_Schedule | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess51'" class='w3-bar-item w3-button' title='TC08_Admin_CreateNewUser_CheckRole_Admin'>TC08_Admin_CreateNewUser_CheckRole_Admin | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess52'" class='w3-bar-item w3-button' title='TC13_Admin_CreateNewUser_CheckRole_Fms'>TC13_Admin_CreateNewUser_CheckRole_Fms | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess53'" class='w3-bar-item w3-button' title='TC15_Admin_CreateNewUser_CheckRole_Imail'>TC15_Admin_CreateNewUser_CheckRole_Imail | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess54'" class='w3-bar-item w3-button' title='TC14_Admin_CreateNewUser_CheckRole_Fms_Incidents'>TC14_Admin_CreateNewUser_CheckRole_Fms_Incidents | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess55'" class='w3-bar-item w3-button' title='TC16_Admin_CreateNewUser_CheckRole_Recruitment'>TC16_Admin_CreateNewUser_CheckRole_Recruitment | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess56'" class='w3-bar-item w3-button' title='TC17_Admin_CreateNewUser_CheckRole_RecruitmentAdmin'>TC17_Admin_CreateNewUser_CheckRole_RecruitmentAdmin | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess57'" class='w3-bar-item w3-button' title='TC19_Admin_CreateNewUser_CheckRole_CrmAdmin'>TC19_Admin_CreateNewUser_CheckRole_CrmAdmin | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess58'" class='w3-bar-item w3-button' title='TC20_Admin_CreateNewUser_CheckRole_Finance'>TC20_Admin_CreateNewUser_CheckRole_Finance | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess59'" class='w3-bar-item w3-button' title='TC18_Admin_CreateNewUser_CheckRole_Crm'>TC18_Admin_CreateNewUser_CheckRole_Crm | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess60'" class='w3-bar-item w3-button' title='TC21_Admin_Logs_VerifyPageContent'>TC21_Admin_Logs_VerifyPageContent | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess61'" class='w3-bar-item w3-button' title='TC22_Admin_Logs_Text_Search'>TC22_Admin_Logs_Text_Search | Fatal</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess62'" class='w3-bar-item w3-button' title='TC23_Admin_Logs_OnDatePicker'>TC23_Admin_Logs_OnDatePicker | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess63'" class='w3-bar-item w3-button' title='TC24_Admin-Logs-Verify_For_From_And_ TO_datePicker'>TC24_Admin-Logs-Verify_For_From_And_ TO_datePicker | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess64'" class='w3-bar-item w3-button' title='TC25_Admin-Logs-Verify_For_Logs_Participants'>TC25_Admin-Logs-Verify_For_Logs_Participants | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess65'" class='w3-bar-item w3-button' title='TC26_Admin_Logs_Verify_For_Logs_Organisation'>TC26_Admin_Logs_Verify_For_Logs_Organisation | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess66'" class='w3-bar-item w3-button' title='TC27_Admin_Logs_Verify_For_Logs_Fms'>TC27_Admin_Logs_Verify_For_Logs_Fms | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess67'" class='w3-bar-item w3-button' title='TC28_Admin_Logs_Verify_For_Logs_Imail'>TC28_Admin_Logs_Verify_For_Logs_Imail | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess68'" class='w3-bar-item w3-button' title='TC29_Admin_Logs_Verify_For_Logs_Members'>TC29_Admin_Logs_Verify_For_Logs_Members | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess69'" class='w3-bar-item w3-button' title='TC30_Admin_Logs_Verify_For_Logs_Schedule'>TC30_Admin_Logs_Verify_For_Logs_Schedule | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess70'" class='w3-bar-item w3-button' title='TC31_Admin_Logs_Verify_For_Export_Selected_Button'>TC31_Admin_Logs_Verify_For_Export_Selected_Button | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess71'" class='w3-bar-item w3-button' title='TC32_Admin_Logs_Verify_For_Pagination'>TC32_Admin_Logs_Verify_For_Pagination | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess72'" class='w3-bar-item w3-button' title='TC33_Admin_Approvals_Verify_For_Search'>TC33_Admin_Approvals_Verify_For_Search | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess73'" class='w3-bar-item w3-button' title='TC34_Admin_Approvals_Verify_For_On_datePicker'>TC34_Admin_Approvals_Verify_For_On_datePicker | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess74'" class='w3-bar-item w3-button' title='TC35_Admin_Approvals_Verify_For_Icon_Pin'>TC35_Admin_Approvals_Verify_For_Icon_Pin | Fatal</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess75'" class='w3-bar-item w3-button' title='TC36_Admin_Approvals_Verify_For_Icon_View'>TC36_Admin_Approvals_Verify_For_Icon_View | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess76'" class='w3-bar-item w3-button' title='TC37_Admin_Approvals_Verify_For_Pagination'>TC37_Admin_Approvals_Verify_For_Pagination | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_104511/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_104511/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>247</td><td>2019Oct25_102629</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='AWS'>AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">25/10/2019 10:21:33 AM</td>
+						<td colspan="3" class="cellText-center">25/10/2019 10:26:29 AM</td>
+						<td colspan="2" class="cellText-center">00:04:55.600</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>9</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>6</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>3</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>85</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>69</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>4</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:orange;'>3</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>9</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8">
+							<div class="miniBar">
+								<div class="miniBarProgress" style="left: 0; width: 66.66%; background-color: green;">66.66%</div>
+								<div class="miniBarProgress" style="left: 66.66%; width: 33.33%; background-color: red;">33.33%</div>
+								<div class="miniBarProgress" style="left: 100.0%; width: <!-- skippedPercent -->; background-color: brown;"><!-- skippedPercent --></div>
+							</div>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC02_Admin-External_verify_SearchFunctionlity'>TC02_Admin-External_verify_SearchFunctionlity | Fatal</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess1'" class='w3-bar-item w3-button' title='TC03_Admin-External_verify_SortingFilterBySelect'>TC03_Admin-External_verify_SortingFilterBySelect | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess2'" class='w3-bar-item w3-button' title='TC04_Admin_External_verify_SortingFilterByDate'>TC04_Admin_External_verify_SortingFilterByDate | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess3'" class='w3-bar-item w3-button' title='TC05_Admin_External_verify_SendDraftMail'>TC05_Admin_External_verify_SendDraftMail | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess4'" class='w3-bar-item w3-button' title='TC06_Admin_External_ComposeNewMail_Verify_ClientPortal'>TC06_Admin_External_ComposeNewMail_Verify_ClientPortal | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess5'" class='w3-bar-item w3-button' title='TC07_Admin_External_ComposeNewMailOnClientPortal_VerifyAdmin'>TC07_Admin_External_ComposeNewMailOnClientPortal_VerifyAdmin | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess6'" class='w3-bar-item w3-button' title='TC08_Admin_External_Check_MailMarkAsRead'>TC08_Admin_External_Check_MailMarkAsRead | Pass</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess7'" class='w3-bar-item w3-button' title='TC09_Admin_External_Check_MailMarkAsFavourites'>TC09_Admin_External_Check_MailMarkAsFavourites | Fatal</span></li><li class='Fatal'><span onclick="window.location.href='#quickAccess8'" class='w3-bar-item w3-button' title='TC10_Admin_External_Check_MailSetAsItemFlag'>TC10_Admin_External_Check_MailSetAsItemFlag | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Oct25_102629/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Oct25_102629/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><!-- INSERT_ROW -->
+				
+			</tbody>
+			
+		</table>
+			
+		 <i>
+			 <br/>
+			<a href='page24.html'> <span class='prev'> &#8592 Prev </span></a>
+			
+			<br/>
+			Page <a href='page1.html'>1</a> <a href='page2.html'>2</a> <a href='page3.html'>3</a> <a href='page4.html'>4</a> <a href='page5.html'>5</a> <a href='page6.html'>6</a> <a href='page7.html'>7</a> <a href='page8.html'>8</a> <a href='page9.html'>9</a> <a href='page10.html'>10</a> <a href='page11.html'>11</a> <a href='page12.html'>12</a> <a href='page13.html'>13</a> <a href='page14.html'>14</a> <a href='page15.html'>15</a> <a href='page16.html'>16</a> <a href='page17.html'>17</a> <a href='page18.html'>18</a> <a href='page19.html'>19</a> <a href='page20.html'>20</a> <a href='page21.html'>21</a> <a href='page22.html'>22</a> <a href='page23.html'>23</a> <a href='page24.html'>24</a> <a href='page25.html'><span class='currentPage'>25</span></a> <!-- INSERT_BOTTOM_PAGINATION -->
+		 </i>
+		 
+	 </body>
+	 
+	 
+	 <script>
+	 document.onkeydown = function(e) {
+		 e = e || window.event;
+		 switch(e.which || e.keyCode) 
+		 {
+			 case 37: 
+				loadPage('left');
+				break;
+			 case 38://up
+				window.scrollBy(0,-50)
+				break;
+			case 39: 
+				loadPage('right');
+				break;
+			 case 40: //down
+				window.scrollBy(0,50)
+				break;
+			 default: 
+				return; 
+		 }
+		 e.preventDefault(); 
+	 }
+	 
+	 function loadPage(leftOrRight) {
+		 if(leftOrRight=='left'){
+			 var elem=getElementsByXPath("//span[normalize-space(@class)='prev']/..");
+			 if(elem.length>0){
+				 var href=elem[0].getAttribute('href');
+				window.location.href = href;
+			}
+		 } else {
+			 var elem=getElementsByXPath("//span[normalize-space(@class)='next']/..");
+			 if(elem.length>0){
+				var href=elem[0].getAttribute('href');
+				window.location.href = href;
+			 }
+		 }
+	 }
+	 
+	 function getElementsByXPath(xpath, parent) {
+		 let results = [];
+		 let query = document.evaluate(xpath, parent || document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+		 for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+			results.push(query.snapshotItem(i));
+		 }
+		return results;
+	 }
+	 </script>
+	 
+ </html>

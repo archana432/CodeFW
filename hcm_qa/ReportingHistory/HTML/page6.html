@@ -1,0 +1,1350 @@
+<html>
+
+	<head>
+	
+	<title>Test Result History</title>
+	
+		 <style>
+            body {
+                font-family: calibri;
+                background-color: #DFDFDF;
+            }
+
+            h2 {
+                color: midnightblue;
+            }
+
+            a {
+                color: blue;
+                text-decoration: none;
+            }
+
+            table {
+                border: 1px solid #AAAAAA;
+            }
+
+            th {
+                border-bottom: 1px solid #AAAAAA;
+            }
+
+            tr {
+                background: aliceblue;
+            }
+
+            td {
+                border: 1px solid lightgray;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            p {
+                max-height: 125px;
+                overflow: auto;
+            }
+ 			
+ 			table#dashboard{
+ 				width:420px;
+ 			} 
+
+            #dashboard td {
+                background-color: aliceblue;
+                font-family: monospace;
+                word-break: break-all;
+                font-size: smaller;
+            }
+
+            .dashboard-header {
+                border-radius: 4px;
+                padding: 1px 0px;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .cellText-center {
+                border-radius: 4px;
+                padding: 1px 5px;
+                text-align: center;
+            }
+
+            .properties-div {
+                border: solid black 0px;
+                margin: 0px;
+                padding: 0px;
+                width: max-content;
+                color: midnightblue;
+                text-align: left;
+            }
+
+            .properties-span {
+                border: solid black 0px;
+                margin: 5px;
+                padding: 3px;
+            }
+
+            .currentPage {
+                color: #000;
+                font-size: x-large;
+            }
+
+            span[class*='AWS'] {
+                border-radius: 4px;
+                padding: 1px;
+                background-color: blue;
+                color: white;
+            }
+
+            span[class*='STG'] {
+                border-radius: 4px;
+                padding: 1px;
+                background-color: red;
+                color: white;
+            }
+
+            .prev {
+                border: 1px solid lightgray;
+                padding: 1px;
+                margin: 1px 5px;
+            }
+
+            .next {
+                border: 1px solid lightgray;
+                padding: 1px;
+                margin: 1px 5px;
+            }
+            .info{
+				    border: 0px solid black;
+					margin: 0px 0px -42px 15px;
+					padding: 0px 0px 0px 0px;
+			}
+			.dir{
+				float:left;
+			}
+			.up{
+			    border: 0px solid black;
+				margin: 0px 0px 0px 15px;
+				padding: 0px 0px 0px 0px;
+			}
+			.left{
+				border: 0px solid black;
+				margin: 10px 0px 0px -30px;
+				padding: 0px 0px 0px 0px;
+			}
+			.right{
+			    border: 0px solid black;
+				margin: 10px 0px 0px 0px;
+				padding: 0px 0px 0px 0px;
+			}
+			.down{
+				border: 0px solid black;
+				margin: 20px 0px 0px -29px;
+				padding: 0px 0px 0px 0px;
+			}
+			.round{
+				width: 44px;
+				height: 41px;
+				border: 0px solid grey;
+				position: fixed;
+				border-radius: 50%;
+				background: darkgray;
+				box-shadow: 0px 0px 10px 2px black;
+				color: white;
+				cursor: pointer;
+			}
+			.txt{
+				margin: 1px 1px 1px 60px;
+			}
+			.quickView{
+				max-height: 135px;
+    			overflow-y: auto;
+			}
+			
+            .pass {
+                color: green;
+            }
+
+            .info {
+                color: blue;
+            }
+
+            .fail {
+                color: red;
+            }
+
+            .fatal {
+                color: #B71C1C;
+            }
+
+            .warning {
+                color: orange;
+            }
+
+            .error {
+                color: #ec407a;
+            }
+
+            .skip {
+                color: brown;
+            }
+            
+            
+            .miniBarProgress {
+			    text-align: center;
+			}
+			.miniBar {    
+			    border: 1px solid #8a898a;
+			    position: relative;
+			    width: -webkit-calc(100% - 2rem);
+			    width: -moz-calc(100% - 2rem);
+			    width: 100%;
+			    margin-right: 0.5rem;
+			    color: white;
+			    font-weight: bold;
+			    -webkit-align-items: stretch;
+    			align-items: stretch;
+    			display:flex;
+    			height:15px;
+    			margin-bottom:55px;
+			}
+			
+			.tooltips{
+			    position: relative;
+			}
+			.mini-middle::after {
+			    content: '';
+			    border-bottom: 8px solid #000000;
+			    width: 0px;
+			    border-left: 6px solid transparent;
+			    border-right: 6px solid transparent;
+			    position: absolute;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    top: -4px;
+			}
+			.mini-middle{
+			position: absolute;
+			    left: 50%;
+			    background: #000;
+			    transform: translate(-50%, -50%);
+			    padding: 2px 7px;
+			    border-radius: 4px;
+			    bottom: -39px;
+			    width: 50px;
+			}
+						
+			.green .mini-middle::after {
+			    border-bottom-color: green;
+			}
+			
+			.green .mini-middle {
+			    background: green;
+			}	
+						
+			.red .mini-middle::after {
+			    border-bottom-color: red;
+			}
+			
+			.red .mini-middle {
+			    background: red;
+			}			
+			
+			.brown .mini-middle::after {
+			    border-bottom-color: brown;
+			}
+			
+			.brown .mini-middle {
+			    background: brown;
+			}	
+			
+        </style>
+	<head>
+
+
+	<body>
+	<div class='info'>
+		<div class="round">
+			<div class='dir up' onclick="window.scrollBy(0,-50)">
+				&uarr;
+			</div>
+			<div class='dir left'  onclick="loadPage('left')">
+				&larr;
+			</div>
+			<div class='dir right'  onclick="loadPage('right')">
+				&rarr;
+			</div>
+			<div class='dir down'  onclick="window.scrollBy(0,50)">
+				&darr;
+			</div>
+		</div>
+			
+		<div class='txt'>Use Keyboard keys to control the navigation</div>
+	</div>
+	<center>
+		<h2>HCM Test Result History</h2>
+		<i>Total rows 247<!-- TOTAL ROWS --> and Displaying 10<!-- PAGE ROWS --> rows per page.
+		<br/>
+		<a href='page5.html'> <span class='prev'> &#8592 Prev </span></a>
+		<a href='page7.html'> <span class='next'>Next &#8594</span></a>
+		<br/>
+		Page <a href='page1.html'>1</a> <a href='page2.html'>2</a> <a href='page3.html'>3</a> <a href='page4.html'>4</a> <a href='page5.html'>5</a> <a href='page6.html'><span class='currentPage'>6</span></a> <a href='page7.html'>7</a> <a href='page8.html'>8</a> <a href='page9.html'>9</a> <a href='page10.html'>10</a> <a href='page11.html'>11</a> <a href='page12.html'>12</a> <a href='page13.html'>13</a> <a href='page14.html'>14</a> <a href='page15.html'>15</a> <a href='page16.html'>16</a> <a href='page17.html'>17</a> <a href='page18.html'>18</a> <a href='page19.html'>19</a> <a href='page20.html'>20</a> <a href='page21.html'>21</a> <a href='page22.html'>22</a> <a href='page23.html'>23</a> <a href='page24.html'>24</a> <a href='page25.html'>25</a> <!-- INSERT_TOP_PAGINATION -->
+		</i>
+
+
+		<table border='0'>
+
+			<tbody>
+			
+				<tr>
+					<td style='font-weight: bold; text-align: center;'>#</td>
+					<td style='font-weight: bold; text-align: center;'>Folder</td>
+					<td style='font-weight: bold; text-align: center;'>DashBoards</td>
+					<td style='font-weight: bold; text-align: center;'>Quick Report View</td>
+					<td style='font-weight: bold; text-align: center;'>Reports Link</td>
+				</tr>
+				
+				<tr><td>51</td><td>2019Nov07_144954</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 02:49:31 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 02:49:54 PM</td>
+						<td colspan="2" class="cellText-center">00:00:22.481</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>9</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>9</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC16_PlanManagement_Pending_Invoices_Page_Contents'>TC16_PlanManagement_Pending_Invoices_Page_Contents | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_144954/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_144954/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>52</td><td>2019Nov07_144953</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 02:49:31 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 02:49:53 PM</td>
+						<td colspan="2" class="cellText-center">00:00:21.864</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>9</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>9</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC16_PlanManagement_Pending_Invoices_Page_Contents'>TC16_PlanManagement_Pending_Invoices_Page_Contents | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_144953/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_144953/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>53</td><td>2019Nov07_143801</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 02:37:14 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 02:38:01 PM</td>
+						<td colspan="2" class="cellText-center">00:00:47.640</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>12</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>12</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC18_PlanManagement_Pending_Invoices_Searchfield'>TC18_PlanManagement_Pending_Invoices_Searchfield | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_143801/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_143801/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>54</td><td>2019Nov07_142244</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 02:21:58 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 02:22:44 PM</td>
+						<td colspan="2" class="cellText-center">00:00:46.162</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>1</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>19</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>6</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>5</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>8</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips red' style='width: 100.0%; background-color: red;'>
+									<div class='mini-middle' style=''>100.0%									</div>
+								</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC18_PlanManagement_Pending_Invoices_Searchfield'>TC18_PlanManagement_Pending_Invoices_Searchfield | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_142244/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_142244/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>55</td><td>2019Nov07_124608</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 12:45:48 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 12:46:07 PM</td>
+						<td colspan="2" class="cellText-center">00:00:19.557</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>5</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>5</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC17_Invoices_RunPlanner'>TC17_Invoices_RunPlanner | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_124608/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_124608/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>56</td><td>2019Nov07_124607</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 12:45:48 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 12:46:07 PM</td>
+						<td colspan="2" class="cellText-center">00:00:18.963</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>5</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>5</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC17_Invoices_RunPlanner'>TC17_Invoices_RunPlanner | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_124607/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_124607/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>57</td><td>2019Nov07_121942</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 12:19:21 PM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 12:19:42 PM</td>
+						<td colspan="2" class="cellText-center">00:00:21.172</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>8</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>8</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC16_PlanManagement_Pending_Invoices_Page_Contents'>TC16_PlanManagement_Pending_Invoices_Page_Contents | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_121942/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_121942/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>58</td><td>2019Nov07_103004</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">07/11/2019 10:29:46 AM</td>
+						<td colspan="3" class="cellText-center">07/11/2019 10:30:04 AM</td>
+						<td colspan="2" class="cellText-center">00:00:18.236</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>1</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>1</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>10</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>4</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:red;'>3</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:#B71C1C;'>3</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips red' style='width: 100.0%; background-color: red;'>
+									<div class='mini-middle' style=''>100.0%									</div>
+								</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Fatal'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC16_PlanManagement_Pending_Invoices_Page_Contents'>TC16_PlanManagement_Pending_Invoices_Page_Contents | Fatal</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov07_103004/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov07_103004/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>59</td><td>2019Nov06_180446</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">06/11/2019 06:03:48 PM</td>
+						<td colspan="3" class="cellText-center">06/11/2019 06:04:45 PM</td>
+						<td colspan="2" class="cellText-center">00:00:57.840</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>4</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>4</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>16</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>16</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC12_PlanManagement_Status_Links_pending'>TC12_PlanManagement_Status_Links_pending | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess1'" class='w3-bar-item w3-button' title='TC13_PlanManagement_Status_Links_Duplicate'>TC13_PlanManagement_Status_Links_Duplicate | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess2'" class='w3-bar-item w3-button' title='TC14_PlanManagement_Status_Links_Follow_Up'>TC14_PlanManagement_Status_Links_Follow_Up | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess3'" class='w3-bar-item w3-button' title='TC15_PlanManagement_Status_Links_Paid'>TC15_PlanManagement_Status_Links_Paid | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov06_180446/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov06_180446/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><tr><td>60</td><td>2019Nov06_180445</td><td><!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <span class='PM-AWS'>PM-AWS</span></td>
+						<td colspan="3"><b>Suite</b>: Admin_Suit</td>
+						<td colspan="3"><b>Test</b>: ADMIN_TESTS_</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center">06/11/2019 06:03:48 PM</td>
+						<td colspan="3" class="cellText-center">06/11/2019 06:04:45 PM</td>
+						<td colspan="2" class="cellText-center">00:00:57.225</td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>4</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>4</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<span style='color:midnightblue'>16</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:green;'>16</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+						<td style="text-align: center;">
+							<span style='color:white;'>0</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<div class='miniBar' style='margin-bottom: 30px;'><div class='miniBarProgress tooltips green' style='width: 100.0%; background-color: green;'>
+	<div class='mini-middle'>100.0%	</div>
+</div></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td><td width='50%'> <div class='quickView'><!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<li class='Pass'><span onclick="window.location.href='#quickAccess0'" class='w3-bar-item w3-button' title='TC12_PlanManagement_Status_Links_pending'>TC12_PlanManagement_Status_Links_pending | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess1'" class='w3-bar-item w3-button' title='TC13_PlanManagement_Status_Links_Duplicate'>TC13_PlanManagement_Status_Links_Duplicate | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess2'" class='w3-bar-item w3-button' title='TC14_PlanManagement_Status_Links_Follow_Up'>TC14_PlanManagement_Status_Links_Follow_Up | Pass</span></li><li class='Pass'><span onclick="window.location.href='#quickAccess3'" class='w3-bar-item w3-button' title='TC15_PlanManagement_Status_Links_Paid'>TC15_PlanManagement_Status_Links_Paid | Pass</span></li><!-- quickAccess_items -->
+	  </ol>
+	  </div></td><td> <a href='../2019Nov06_180445/Result/Report_Redesign_Template.html#1' target ='_blank' style='color:red;'>Custom_NEW</a> <br/> <a href='../2019Nov06_180445/Result/Result_Extentv3.html' target ='_blank'>Extent</a></td></tr><!-- INSERT_ROW -->
+				
+			</tbody>
+			
+		</table>
+			
+		 <i>
+			 <br/>
+			<a href='page5.html'> <span class='prev'> &#8592 Prev </span></a>
+			<a href='page7.html'> <span class='next'>Next &#8594</span></a>
+			<br/>
+			Page <a href='page1.html'>1</a> <a href='page2.html'>2</a> <a href='page3.html'>3</a> <a href='page4.html'>4</a> <a href='page5.html'>5</a> <a href='page6.html'><span class='currentPage'>6</span></a> <a href='page7.html'>7</a> <a href='page8.html'>8</a> <a href='page9.html'>9</a> <a href='page10.html'>10</a> <a href='page11.html'>11</a> <a href='page12.html'>12</a> <a href='page13.html'>13</a> <a href='page14.html'>14</a> <a href='page15.html'>15</a> <a href='page16.html'>16</a> <a href='page17.html'>17</a> <a href='page18.html'>18</a> <a href='page19.html'>19</a> <a href='page20.html'>20</a> <a href='page21.html'>21</a> <a href='page22.html'>22</a> <a href='page23.html'>23</a> <a href='page24.html'>24</a> <a href='page25.html'>25</a> <!-- INSERT_BOTTOM_PAGINATION -->
+		 </i>
+		 
+	 </body>
+	 
+	 
+	 <script>
+	 document.onkeydown = function(e) {
+		 e = e || window.event;
+		 switch(e.which || e.keyCode) 
+		 {
+			 case 37: 
+				loadPage('left');
+				break;
+			 case 38://up
+				window.scrollBy(0,-50)
+				break;
+			case 39: 
+				loadPage('right');
+				break;
+			 case 40: //down
+				window.scrollBy(0,50)
+				break;
+			 default: 
+				return; 
+		 }
+		 e.preventDefault(); 
+	 }
+	 
+	 function loadPage(leftOrRight) {
+		 if(leftOrRight=='left'){
+			 var elem=getElementsByXPath("//span[normalize-space(@class)='prev']/..");
+			 if(elem.length>0){
+				 var href=elem[0].getAttribute('href');
+				window.location.href = href;
+			}
+		 } else {
+			 var elem=getElementsByXPath("//span[normalize-space(@class)='next']/..");
+			 if(elem.length>0){
+				var href=elem[0].getAttribute('href');
+				window.location.href = href;
+			 }
+		 }
+	 }
+	 
+	 function getElementsByXPath(xpath, parent) {
+		 let results = [];
+		 let query = document.evaluate(xpath, parent || document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+		 for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+			results.push(query.snapshotItem(i));
+		 }
+		return results;
+	 }
+	 </script>
+	 
+ </html>

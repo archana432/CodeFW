@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Admin_Suit]" parallel="methods">
+  <parameter name="remoteURL" value=""/>
+  <listeners>
+    <listener class-name="com.testNgListener.CustomListener_HMap"/>
+  </listeners>
+  <test name="ADMIN_TESTS_(failed)" parallel="methods">
+    <parameter name="environment" value="AWS"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="user" value="Admin"/>
+    <parameter name="platform" value=""/>
+    <classes>
+      <class name="tests.admin.AdminModule">
+        <methods>
+          <include name="TC04_Admin_CreateUser_InactiveUser">
+            <parameter name="user" value="Admin"/>
+          </include> <!-- TC04_Admin_CreateUser_InactiveUser -->
+        </methods>
+      </class> <!-- tests.admin.AdminModule -->
+    </classes>
+  </test> <!-- ADMIN_TESTS_(failed) -->
+</suite> <!-- Failed suite [Admin_Suit] -->

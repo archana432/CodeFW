@@ -1,0 +1,2693 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MM/dd/yyyy, HH:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/6d3843c29c354373fafad29c03a1a89b7e06c374/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports 3.0</title>
+
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Environment: 'AWS' | suite: Admin_Suit | test: ADMIN_TESTS_</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>10/30/2019, 17:53:59 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>v3.0.6</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fatal'><a href='#!'>Fatal <i class='material-icons red-text darken-3'>cancel</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='warning'><a href='#!'>Warning <i class='material-icons orange-text'>warning</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='85.714%'><span class='strong'>18</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='4.762%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='9.524%'>2</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='89.32%'><span class='strong'>92</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='3.883%'>4</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='6.796%'>7</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fatal' status='fatal' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>TC02_Admin-External_verify_SearchFunctionlity | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:53:59 PM</span>
+						<span class='test-status right fatal'>fatal</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:53:59 PM</span>
+	<span class='label end-time'>10/30/2019, 17:54:18 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+398ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC02_Admin_External_verify_SearchFunctionlity</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:54:03 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir14636_730806052}, goog:chromeOptions={debuggerAddress=localhost:60221}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:54:08 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:54:08 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:54:08 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:54:13 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fatal' status='fatal' test-id='2'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:54:13 PM</span>
+						<span class='node-duration'>0h 0m 5s+77ms</span>
+						<span class='test-status right fatal'>fatal</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:54:16 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='fatal'>
+													<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>5:54:17 PM</td>
+													<td class='step-details'>invalid selector: Unable to locate an element with the xpath expression (//div[@class='input_search P_25_TB']//input[@class='form-control'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '(//div[@class='input_search P_25_TB']//input[@class='form-control']' is not a valid XPath expression.
+  (Session info: chrome=77.0.3865.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-PDO9TDI', ip: '192.168.8.245', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\win10\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60221}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61252cfcc21ccd8bf9b757bf14ec1b58
+*** Element info: {Using=xpath, value=(//div[@class='input_search P_25_TB']//input[@class='form-control']}<br/> Stack Trace :- <b>null<br/>sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br/>sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br/>sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br/>java.lang.reflect.Constructor.newInstance(Constructor.java:423)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br/>org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br/>org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br/>org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br/>org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br/>org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br/>org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br/>com.sun.proxy.$Proxy7.isDisplayed(Unknown Source)<br/>com.seleniumExceptionHandling.SeleniumMethods.isElementPresent(SeleniumMethods.java:652)<br/>or.imail.External_Imail.verify_SearchFunctionlity(External_Imail.java:195)<br/>tests.imail.Imail_Module.TC02_Admin_External_verify_SearchFunctionlity(Imail_Module.java:57)<br/>sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>java.lang.reflect.Method.invoke(Method.java:498)<br/>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br/>org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br/>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br/>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br/>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br/>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br/>java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)<br/>java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)<br/>java.lang.Thread.run(Thread.java:748)</b><img data-featherlight='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438257453_failure.jpg' width='10%' src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438257453_failure.jpg' data-src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438257453_failure.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>5:54:18 PM</td>
+													<td class='step-details'>'Text To present' is NOT displayed<img data-featherlight='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438257845_failure.jpg' width='10%' src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438257845_failure.jpg' data-src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438257845_failure.jpg'></td>
+												</tr>
+												<tr class='log' status='fatal'>
+													<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>5:54:18 PM</td>
+													<td class='step-details'>invalid selector: Unable to locate an element with the xpath expression (//div[@class='input_search P_25_TB']//input[@class='form-control'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '(//div[@class='input_search P_25_TB']//input[@class='form-control']' is not a valid XPath expression.
+  (Session info: chrome=77.0.3865.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-PDO9TDI', ip: '192.168.8.245', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\win10\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60221}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61252cfcc21ccd8bf9b757bf14ec1b58
+*** Element info: {Using=xpath, value=(//div[@class='input_search P_25_TB']//input[@class='form-control']}<br/> Stack Trace :- <b>null<br/>sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br/>sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br/>sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br/>java.lang.reflect.Constructor.newInstance(Constructor.java:423)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br/>org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br/>org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br/>org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br/>org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br/>org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br/>org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br/>com.sun.proxy.$Proxy7.clear(Unknown Source)<br/>com.seleniumExceptionHandling.SeleniumMethods.sendKeys(SeleniumMethods.java:949)<br/>com.seleniumExceptionHandling.SeleniumMethods.sendKeys(SeleniumMethods.java:926)<br/>or.imail.External_Imail.verify_SearchFunctionlity(External_Imail.java:197)<br/>tests.imail.Imail_Module.TC02_Admin_External_verify_SearchFunctionlity(Imail_Module.java:57)<br/>sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>java.lang.reflect.Method.invoke(Method.java:498)<br/>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br/>org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br/>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br/>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br/>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br/>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br/>java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)<br/>java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)<br/>java.lang.Thread.run(Thread.java:748)</b><img data-featherlight='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438258218_failure.jpg' width='10%' src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438258218_failure.jpg' data-src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438258218_failure.jpg'></td>
+												</tr>
+												<tr class='log' status='fatal'>
+													<td class='status fatal' title='fatal' alt='fatal'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>5:54:18 PM</td>
+													<td class='step-details'>invalid selector: Unable to locate an element with the xpath expression (//div[@class='input_search P_25_TB']//input[@class='form-control'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '(//div[@class='input_search P_25_TB']//input[@class='form-control']' is not a valid XPath expression.
+  (Session info: chrome=77.0.3865.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-PDO9TDI', ip: '192.168.8.245', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\win10\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60221}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61252cfcc21ccd8bf9b757bf14ec1b58
+*** Element info: {Using=xpath, value=(//div[@class='input_search P_25_TB']//input[@class='form-control']}<br/> Stack Trace :- <b>null<br/>sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br/>sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br/>sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br/>java.lang.reflect.Constructor.newInstance(Constructor.java:423)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br/>org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br/>org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br/>org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br/>org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br/>org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br/>org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br/>org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br/>org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br/>com.sun.proxy.$Proxy7.clear(Unknown Source)<br/>com.seleniumExceptionHandling.SeleniumMethods.sendKeys(SeleniumMethods.java:949)<br/>com.seleniumExceptionHandling.SeleniumMethods.sendKeys(SeleniumMethods.java:926)<br/>or.imail.External_Imail.verify_SearchFunctionlity(External_Imail.java:198)<br/>tests.imail.Imail_Module.TC02_Admin_External_verify_SearchFunctionlity(Imail_Module.java:57)<br/>sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br/>sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br/>sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br/>java.lang.reflect.Method.invoke(Method.java:498)<br/>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br/>org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br/>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br/>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br/>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br/>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br/>java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)<br/>java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)<br/>java.lang.Thread.run(Thread.java:748)</b><img data-featherlight='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438258588_failure.jpg' width='10%' src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438258588_failure.jpg' data-src='../Snapshots/TC02_Admin_External_verify_SearchFunctionlity/failure/1572438258588_failure.jpg'></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>TC03_Admin-External_verify_SortingFilterBySelect | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:54:19 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:54:19 PM</span>
+	<span class='label end-time'>10/30/2019, 17:55:41 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 22s+358ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC03_Admin_External_verify_SortingFilterBySelect</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:54:21 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir9640_413487841}, goog:chromeOptions={debuggerAddress=localhost:60274}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:54:27 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:54:27 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:54:27 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:54:32 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:54:32 PM</span>
+						<span class='node-duration'>0h 1m 9s+174ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:54:35 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:54:36 PM</td>
+													<td class='step-details'>'present' is displayed</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>5:54:36 PM</td>
+													<td class='step-details'>Selecting option: [Flagged]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>5:55:09 PM</td>
+													<td class='step-details'>Selecting option: [Favourite]</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:55:41 PM</td>
+													<td class='step-details'>'click on Favourites' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>TC04_Admin_External_verify_SortingFilterByDate | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:55:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:55:44 PM</span>
+	<span class='label end-time'>10/30/2019, 17:56:00 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+732ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC04_Admin_External_verify_SortingFilterByDate</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:55:47 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir8000_698804837}, goog:chromeOptions={debuggerAddress=localhost:60386}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:55:52 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:55:52 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:55:52 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:55:57 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='6'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:55:57 PM</span>
+						<span class='node-duration'>0h 0m 3s+458ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:00 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:00 PM</td>
+													<td class='step-details'>'click on External Imail' is clicked</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>5:56:00 PM</td>
+													<td class='step-details'>Selecting option: []</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>TC05_Admin_External_verify_SendDraftMail | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:56:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:56:02 PM</span>
+	<span class='label end-time'>10/30/2019, 17:56:31 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+381ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC05_Admin_External_verify_SendDraftMail</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:56:04 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir13508_353983756}, goog:chromeOptions={debuggerAddress=localhost:60431}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:56:09 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:56:09 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:56:10 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:56:14 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='8'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:56:14 PM</span>
+						<span class='node-duration'>0h 0m 16s+205ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:17 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:21 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:25 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:31 PM</td>
+													<td class='step-details'>'Arch option' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>TC06_Admin_External_ComposeNewMail_Verify_ClientPortal | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:56:37 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:56:37 PM</span>
+	<span class='label end-time'>10/30/2019, 17:57:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 47s+522ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC06_Admin_External_ComposeNewMail_Verify_ClientPortal</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:56:39 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir5280_2086623446}, goog:chromeOptions={debuggerAddress=localhost:60498}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:56:45 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:56:45 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:56:45 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:56:50 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='10'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:56:50 PM</span>
+						<span class='node-duration'>0h 0m 34s+510ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:53 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:56 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:00 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:06 PM</td>
+													<td class='step-details'>'Arch option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:12 PM</td>
+													<td class='step-details'>'Main menu Side Bar' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:13 PM</td>
+													<td class='step-details'>'Logout Button' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:14 PM</td>
+													<td class='step-details'>Logout succeed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:23 PM</td>
+													<td class='step-details'>'click on messages' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:24 PM</td>
+													<td class='step-details'>'MessagesAndNotifications is present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:24 PM</td>
+													<td class='step-details'>'Click on newly created Mail' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>TC07_Admin_External_ComposeNewMailOnClientPortal_VerifyAdmin | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:57:25 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:57:25 PM</span>
+	<span class='label end-time'>10/30/2019, 17:58:58 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 33s+66ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC07_Admin_External_ComposeNewMailOnClientPortal_VerifyAdmin</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:57:27 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir14260_146207107}, goog:chromeOptions={debuggerAddress=localhost:60596}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:57:32 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:57:32 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:57:32 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:57:37 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='12'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:57:37 PM</span>
+						<span class='node-duration'>0h 1m 20s+654ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:40 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:43 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:47 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:53 PM</td>
+													<td class='step-details'>'Arch option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:57:59 PM</td>
+													<td class='step-details'>'Main menu Side Bar' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:01 PM</td>
+													<td class='step-details'>'Logout Button' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:02 PM</td>
+													<td class='step-details'>Logout succeed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:10 PM</td>
+													<td class='step-details'>'click on messages' is clicked</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>5:58:15 PM</td>
+													<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:15 PM</td>
+													<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:20 PM</td>
+													<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='13'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:58:20 PM</span>
+						<span class='node-duration'>0h 0m 37s+990ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:23 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:24 PM</td>
+													<td class='step-details'>'present' is displayed</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>5:58:24 PM</td>
+													<td class='step-details'>Selecting option: [Unread]</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:58 PM</td>
+													<td class='step-details'>'Participant replied mail' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf warning' status='warning' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>TC08_Admin_External_Check_MailMarkAsRead | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:58:58 PM</span>
+						<span class='test-status right warning'>warning</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:58:58 PM</span>
+	<span class='label end-time'>10/30/2019, 17:59:35 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 36s+546ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC08_Admin_External_Check_MailMarkAsRead</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:59:00 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir9472_458960513}, goog:chromeOptions={debuggerAddress=localhost:60737}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:59:06 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:59:06 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:59:06 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:59:11 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf warning' status='warning' test-id='15'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:59:11 PM</span>
+						<span class='node-duration'>0h 0m 24s+194ms</span>
+						<span class='test-status right warning'>warning</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:14 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:17 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:21 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:27 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='warning'>
+													<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+													<td class='timestamp'>5:59:35 PM</td>
+													<td class='step-details'>javaScript_ScrollIntoMIDDLEView_AndHighlight failed to execute on By.xpath: //i[@class='icon icon-envelope-im active']</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:35 PM</td>
+													<td class='step-details'>'Mark as Unread' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>TC09_Admin_External_Check_MailMarkAsFavourites | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 17:59:36 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 17:59:36 PM</span>
+	<span class='label end-time'>10/30/2019, 18:00:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 38s+614ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC09_Admin_External_Check_MailMarkAsFavourites</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:59:38 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir10024_1368405077}, goog:chromeOptions={debuggerAddress=localhost:60809}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:59:43 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:59:43 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:59:43 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='17'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 17:59:48 PM</span>
+						<span class='node-duration'>0h 0m 26s+670ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:50 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:54 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:59:58 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:04 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:14 PM</td>
+													<td class='step-details'>'Mark as Favourite' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>TC10_Admin_External_Check_MailSetAsItemFlag | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:00:15 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:00:15 PM</span>
+	<span class='label end-time'>10/30/2019, 18:00:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+263ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC10_Admin_External_Check_MailSetAsItemFlag</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:00:17 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir4984_1098766030}, goog:chromeOptions={debuggerAddress=localhost:60885}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:00:22 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:00:22 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:00:22 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:00:27 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='19'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:00:27 PM</span>
+						<span class='node-duration'>0h 0m 25s+241ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:30 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:33 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:37 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:43 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:00:52 PM</td>
+													<td class='step-details'>'Mark as Flaged' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>TC11_Admin_External_Check_Mail_BlockItem | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:00:53 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:00:53 PM</span>
+	<span class='label end-time'>10/30/2019, 18:01:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+655ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC11_Admin_External_Check_Mail_BlockItem</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:00:55 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir2008_1080292722}, goog:chromeOptions={debuggerAddress=localhost:60960}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:01:00 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:01:00 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:01:00 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:01:05 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='21'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:01:05 PM</span>
+						<span class='node-duration'>0h 0m 25s+670ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:08 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:11 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:15 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:21 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:30 PM</td>
+													<td class='step-details'>'Mark as Block' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:30 PM</td>
+													<td class='step-details'>Mail is set as blocked is displayed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>TC12_Admin_External_Check_Mail_Archive | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:01:31 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:01:31 PM</span>
+	<span class='label end-time'>10/30/2019, 18:02:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+677ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC12_Admin_External_Check_Mail_Archive</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:01:33 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir4984_1092780635}, goog:chromeOptions={debuggerAddress=localhost:61035}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:01:38 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:01:38 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:01:39 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:01:43 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='23'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:01:43 PM</span>
+						<span class='node-duration'>0h 0m 25s+278ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:46 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:50 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:01:54 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:00 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:09 PM</td>
+													<td class='step-details'>'Mark as Archieve' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='24'>
+					<div class='test-heading'>
+						<span class='test-name'>TC13_Admin_Internal_verifyUI | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:02:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:02:09 PM</span>
+	<span class='label end-time'>10/30/2019, 18:02:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+262ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC13_Admin_Internal_verifyUI</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:11 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir7064_394517387}, goog:chromeOptions={debuggerAddress=localhost:61107}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:17 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:17 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:02:17 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:02:22 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='25'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:02:22 PM</span>
+						<span class='node-duration'>0h 0m 5s+16ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:24 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:25 PM</td>
+													<td class='step-details'>'Click on Internal Imail' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:25 PM</td>
+													<td class='step-details'>'search field present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:26 PM</td>
+													<td class='step-details'>'Filter by select present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:26 PM</td>
+													<td class='step-details'>'Filter by date' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:27 PM</td>
+													<td class='step-details'>'ComposeNewMessage' is displayed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='26'>
+					<div class='test-heading'>
+						<span class='test-name'>TC14_Admin_Internal_verify_SearchFunctionlity | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:02:27 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:02:27 PM</span>
+	<span class='label end-time'>10/30/2019, 18:02:43 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+45ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC14_Admin_Internal_verify_SearchFunctionlity</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:29 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir14844_2051036972}, goog:chromeOptions={debuggerAddress=localhost:61163}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:34 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:34 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:02:35 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:02:39 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='27'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:02:39 PM</span>
+						<span class='node-duration'>0h 0m 3s+826ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:42 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:43 PM</td>
+													<td class='step-details'>'Click on Internal Imail' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:02:43 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='28'>
+					<div class='test-heading'>
+						<span class='test-name'>TC15_Admin_Internal_verify_SortingFilterByDate | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:02:45 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:02:45 PM</span>
+	<span class='label end-time'>10/30/2019, 18:03:00 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+767ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC15_Admin_Internal_verify_SortingFilterByDate</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:47 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir13008_1491609973}, goog:chromeOptions={debuggerAddress=localhost:61214}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:52 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:02:52 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:02:52 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:02:57 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='29'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:02:57 PM</span>
+						<span class='node-duration'>0h 0m 3s+339ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:00 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:00 PM</td>
+													<td class='step-details'>'Click on Internal Imail' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='30'>
+					<div class='test-heading'>
+						<span class='test-name'>TC17_Admin_Internal_ComposeNewMail_VerifyClient_Admin | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:03:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:03:02 PM</span>
+	<span class='label end-time'>10/30/2019, 18:04:35 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 33s+470ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC17_Admin_Internal_ComposeNewMail_VerifyClient_Admin</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:03:04 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir2880_502627779}, goog:chromeOptions={debuggerAddress=localhost:61263}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:03:09 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:03:09 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:03:09 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:03:14 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='31'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:03:14 PM</span>
+						<span class='node-duration'>0h 1m 21s+186ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:17 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:20 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:24 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:30 PM</td>
+													<td class='step-details'>'Arch option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:36 PM</td>
+													<td class='step-details'>'Main menu Side Bar' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:37 PM</td>
+													<td class='step-details'>'Logout Button' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:38 PM</td>
+													<td class='step-details'>Logout succeed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:47 PM</td>
+													<td class='step-details'>'click on messages' is clicked</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>6:03:52 PM</td>
+													<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:52 PM</td>
+													<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:03:57 PM</td>
+													<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='32'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:03:57 PM</span>
+						<span class='node-duration'>0h 0m 38s+61ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:04:00 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:04:01 PM</td>
+													<td class='step-details'>'present' is displayed</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>6:04:01 PM</td>
+													<td class='step-details'>Selecting option: [Unread]</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:04:35 PM</td>
+													<td class='step-details'>'Participant replied mail' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf warning' status='warning' bdd='false' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>TC18_Admin_Internal_Check_MailMarkAsRead | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:04:36 PM</span>
+						<span class='test-status right warning'>warning</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:04:36 PM</span>
+	<span class='label end-time'>10/30/2019, 18:05:12 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 36s+439ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC18_Admin_Internal_Check_MailMarkAsRead</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:04:38 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir13024_265227813}, goog:chromeOptions={debuggerAddress=localhost:61414}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:04:43 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:04:43 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:04:43 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:04:48 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf warning' status='warning' test-id='34'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:04:48 PM</span>
+						<span class='node-duration'>0h 0m 24s+286ms</span>
+						<span class='test-status right warning'>warning</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:04:51 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:04:54 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:04:58 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:04 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='warning'>
+													<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+													<td class='timestamp'>6:05:12 PM</td>
+													<td class='step-details'>javaScript_ScrollIntoMIDDLEView_AndHighlight failed to execute on By.xpath: //i[@class='icon icon-envelope-im active']</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:12 PM</td>
+													<td class='step-details'>'Mark as Unread' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='35'>
+					<div class='test-heading'>
+						<span class='test-name'>TC19_Admin_Internal_Check_MailMarkAsFavourites | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:05:13 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:05:13 PM</span>
+	<span class='label end-time'>10/30/2019, 18:05:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 39s+418ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC19_Admin_Internal_Check_MailMarkAsFavourites</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:05:15 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir16644_1488249306}, goog:chromeOptions={debuggerAddress=localhost:61490}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:05:20 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:05:20 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:05:21 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:05:25 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='36'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:05:25 PM</span>
+						<span class='node-duration'>0h 0m 26s+892ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:28 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:32 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:36 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:41 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:05:52 PM</td>
+													<td class='step-details'>'Mark as Favourite' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='37'>
+					<div class='test-heading'>
+						<span class='test-name'>TC20_Admin_Internal_Check_MailSetAsItemFlag | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:05:53 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:05:53 PM</span>
+	<span class='label end-time'>10/30/2019, 18:06:31 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 38s+0ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC20_Admin_Internal_Check_MailSetAsItemFlag</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:05:55 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir14716_1649662741}, goog:chromeOptions={debuggerAddress=localhost:61565}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:06:00 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:06:00 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:06:01 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:06:05 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='38'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:06:05 PM</span>
+						<span class='node-duration'>0h 0m 25s+472ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:08 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:12 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:16 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:22 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:31 PM</td>
+													<td class='step-details'>'Mark as Flaged' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='39'>
+					<div class='test-heading'>
+						<span class='test-name'>TC21_Admin_Internal_Check_Mail_BlockItem | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:06:31 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:06:31 PM</span>
+	<span class='label end-time'>10/30/2019, 18:07:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+796ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC21_Admin_Internal_Check_Mail_BlockItem</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:06:33 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir14220_214417493}, goog:chromeOptions={debuggerAddress=localhost:61639}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:06:38 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:06:38 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:06:39 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:06:43 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='40'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:06:43 PM</span>
+						<span class='node-duration'>0h 0m 25s+675ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:46 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:50 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:06:54 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:00 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:09 PM</td>
+													<td class='step-details'>'Mark as Block' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:09 PM</td>
+													<td class='step-details'>Mail is set as blocked is displayed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='41'>
+					<div class='test-heading'>
+						<span class='test-name'>TC22_Admin_Internal_Check_Mail_Archive | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:07:10 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:07:10 PM</span>
+	<span class='label end-time'>10/30/2019, 18:07:47 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+518ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC22_Admin_Internal_Check_Mail_Archive</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:07:12 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir4252_1072679334}, goog:chromeOptions={debuggerAddress=localhost:61716}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:07:17 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:07:17 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:07:17 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:07:22 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='42'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:07:22 PM</span>
+						<span class='node-duration'>0h 0m 25s+354ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:25 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:28 PM</td>
+													<td class='step-details'>'Text To present' is displayed</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:32 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:38 PM</td>
+													<td class='step-details'>'arc option' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:07:47 PM</td>
+													<td class='step-details'>'Mark as Archieve' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='43'>
+					<div class='test-heading'>
+						<span class='test-name'>TC23_Admin_Internal_Check_GroupMessages | os: <b style='font-size: small;font-family: monospace;'></b> | browser: <b style='font-size: small;font-family: monospace;'>chrome</b> |</span>
+						<span class='test-time'>10/30/2019, 18:07:48 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>10/30/2019, 18:07:48 PM</span>
+	<span class='label end-time'>10/30/2019, 18:08:12 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 24s+388ms</span>
+</div>
+	<div class='test-desc'>| class: <b style='font-size: small;font-family: monospace;'>tests.imail.Imail_Module</b> | Method: <b style='font-size: small;font-family: monospace;'>TC23_Admin_Internal_Check_GroupMessages</b> | Priority: <b style='font-size: small;font-family: monospace;'>0</b> | </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:07:50 PM</td>
+					<td class='step-details'>BROWSER DETAILS: <br/><br/><b style='font-size: small;'>{acceptInsecureCerts=false, browserName=chrome, browserVersion=77.0.3865.120, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\win10\AppData\Local\Temp\scoped_dir16316_1337681783}, goog:chromeOptions={debuggerAddress=localhost:61788}, javascriptEnabled=true, networkConnectionEnabled=false, pageLoadStrategy=normal, platform=XP, platformName=XP, proxy=Proxy(), setWindowRect=true, strictFileInteractability=false, timeouts={implicit=0, pageLoad=300000, script=30000}, unhandledPromptBehavior=dismiss and notify}</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:07:55 PM</td>
+					<td class='step-details'>Fired up url: <br/><b style='font-size: small;'>https://admin.dev.healthcaremgr.net</b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:07:55 PM</td>
+					<td class='step-details'>Login Process Started for user: <br/><b style='font-size: small;'>Admin</b></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:07:55 PM</td>
+					<td class='step-details'>'<b>Healthcare Manager</b>' page is displayed <br/>https://admin.dev.healthcaremgr.net/</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:08:00 PM</td>
+					<td class='step-details'>Login succeed with user id: SSR-A1 and username: shailendra_A1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='44'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Navigating to [/admin/imail/dashboard] page</div>						
+						<span class='node-time'>10/30/2019, 18:08:00 PM</span>
+						<span class='node-duration'>0h 0m 12s+334ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:08:03 PM</td>
+													<td class='step-details'><b style='font-size: small;font-family: monospace;'> -> //a[contains(normalize-space(),'Imail')]</b><br/>'<span style='color: black;font-style: italic;font-weight: bold;'>/admin/imail/dashboard</span>' page is displayed <br/>https://admin.dev.healthcaremgr.net/admin/imail/dashboard</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:08:04 PM</td>
+													<td class='step-details'>'Group_Messages clicked' is clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:08:12 PM</td>
+													<td class='step-details'>'shwetha option' is clicked</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>21</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>103</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>10/30/2019, 17:53:59 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>10/30/2019, 18:08:16 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>857,432ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Test Environment</td>
+								<td>AWS</td>
+							</tr>
+							<tr>
+								<td>Parallel Mode</td>
+								<td>methods</td>
+							</tr>
+							<tr>
+								<td>Assertion Enabled</td>
+								<td>false</td>
+							</tr>
+							<tr>
+								<td>Capturing Snapshots</td>
+								<td>true</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 18,
+				failParent: 0,
+				fatalParent: 1,
+				errorParent: 0,
+				warningParent: 2,
+				skipParent: 0,
+				exceptionsParent: 3,
+				
+				passChild: 92,
+				failChild: 1,
+				fatalChild: 3,
+				errorChild: 0,
+				warningChild: 2,
+				skipChild: 0,
+				infoChild: 5,
+				exceptionsChild: 6,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/5ed7b0c339b51aa347b44ccaa2e2ff29905b2f9f/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+	</body>
+	
+</html>
